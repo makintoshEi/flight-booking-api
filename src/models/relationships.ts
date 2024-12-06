@@ -24,23 +24,17 @@ export const setupRelationships = (sequelize: Sequelize) => {
     });
 
     // Booking to BookingPassengers (One-to-Many)
-    Booking.hasMany(BookingPassenger, {
+    Booking.belongsToMany(PassengerMaster, {
+        through: BookingPassenger,
         foreignKey: { name: 'booking_id', field: 'booking_id' },
-        as: 'bookingPassengers'
-    });
-    BookingPassenger.belongsTo(Booking, {
-        foreignKey: { name: 'booking_id', field: 'booking_id' },
-        as: 'booking'
+        as: 'passengers'
     });
 
     // PassengerMaster to BookingPassengers (One-to-Many)
-    PassengerMaster.hasMany(BookingPassenger, {
+    PassengerMaster.belongsToMany(Booking, {
+        through: BookingPassenger,
         foreignKey: { name: 'passenger_id', field: 'passenger_id' },
-        as: 'bookingPassengers'
-    });
-    BookingPassenger.belongsTo(PassengerMaster, {
-        foreignKey: { name: 'passenger_id', field: 'passenger_id' },
-        as: 'passenger'
+        as: 'bookings'
     });
 
     // Booking to Payment (One-to-One)
