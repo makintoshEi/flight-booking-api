@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 
 import flightRoutes from './routes/flightRoutes';
+import userRoutes from './routes/userRoutes';
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -16,6 +17,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/v1/flights', flightRoutes);
+app.use('/api/v1/users', userRoutes);
 
 // Error handling middleware
 app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {

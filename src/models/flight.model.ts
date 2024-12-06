@@ -54,11 +54,6 @@ const FlightModel: ModelFactory = (sequelize: Sequelize) => {
         underscored: true
     });
 };
-// Optional: Add associations
-FlightModel.associate = (models) => {
-    Flight.hasMany(models.Booking, {
-        foreignKey: 'flight_id',
-        as: 'bookings'
-    });
-};
+
+
 export { FlightModel }
