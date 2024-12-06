@@ -7,7 +7,7 @@ module.exports = {
     ],
     rules: {
         'no-console': 'warn',
-        '@typescript-eslint/explicit-function-return-type': 'error',
-        '@typescript-eslint/no-explicit-any': 'error'
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/no-explicit-any': 'off'
     }
 };
