@@ -8,14 +8,12 @@ export interface IModel extends Model {
 // Model factory type
 export type ModelFactory = (sequelize: any) => ModelStatic<IModel>;
 
-// User interface
 export interface IUser extends IModel {
     username: string;
     email: string;
     password_hash: string;
 }
 
-// Flight interface
 export interface IFlight extends IModel {
     flight_number: string;
     departure_airport: string;
@@ -27,4 +25,12 @@ export interface IFlight extends IModel {
     base_price: number;
     airline: string;
     aircraft_type: string;
+}
+
+export interface IBooking extends Model {
+    booking_id: number;
+    user_id: number;
+    flight_id: number;
+    total_price: number;
+    booking_status: 'PENDING' | 'CONFIRMED' | 'CANCELLED' | 'COMPLETED';
 }

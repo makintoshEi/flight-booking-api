@@ -42,11 +42,11 @@ const FlightModel: ModelFactory = (sequelize: Sequelize) => {
             allowNull: false
         },
         airline: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull: true
         },
         aircraft_type: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(50),
             allowNull: true
         }
     }, {
