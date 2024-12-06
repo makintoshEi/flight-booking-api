@@ -56,3 +56,12 @@ export interface IBookingPassenger extends Model {
     baggage_allowance: number;
     meal_preference: string;
 }
+
+export interface IPayment extends Model {
+    payment_id: number;
+    booking_id: number;
+    payment_amount: number;
+    payment_method: string;
+    payment_status: 'PENDING' | 'SUCCESSFUL' | 'FAILED' | 'REFUNDED';
+    transaction_id: string;
+}
