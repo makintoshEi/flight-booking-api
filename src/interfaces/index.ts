@@ -46,3 +46,13 @@ export interface IPassengerMaster extends Model {
     nationality: string;
     gender: string;
 }
+
+export interface IBookingPassenger extends Model {
+    booking_passenger_id: number;
+    booking_id: number;
+    passenger_id: number;
+    seat_number: string;
+    special_requests: string;
+    baggage_allowance: number;
+    meal_preference: string;
+}
