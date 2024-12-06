@@ -34,3 +34,15 @@ export interface IBooking extends Model {
     total_price: number;
     booking_status: 'PENDING' | 'CONFIRMED' | 'CANCELLED' | 'COMPLETED';
 }
+
+export interface IPassengerMaster extends Model {
+    passenger_id: number;
+    first_name: string;
+    last_name: string;
+    email: string;
+    date_of_birth: Date;
+    passport_number: string;
+    phone_number: string;
+    nationality: string;
+    gender: string;
+}
