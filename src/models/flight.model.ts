@@ -1,7 +1,7 @@
 import { DataTypes, Sequelize } from "sequelize";
-import { IFlight, FlightModelStatic } from "../interfaces";
+import { IFlight, ModelFactory } from "../interfaces";
 
-const FlightModel: FlightModelStatic = (sequelize: Sequelize) => {
+const FlightModel: ModelFactory = (sequelize: Sequelize) => {
     return sequelize.define<IFlight>('Flight', {
         flight_id: {
             type: DataTypes.INTEGER,
@@ -55,12 +55,5 @@ const FlightModel: FlightModelStatic = (sequelize: Sequelize) => {
     });
 };
 
-// Add associations
-const associate = (models: any) => {
-  const Flight = FlightModel(models.sequelize);
-  Flight.hasMany(models.Booking, { foreignKey: 'flight_id', as: 'bookings' });
-};
-
-FlightModel.associate = associate;
 
 export { FlightModel }

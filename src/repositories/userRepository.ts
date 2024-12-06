@@ -7,13 +7,15 @@ class UserRepository {
   constructor() {
     // Initialize the database connection and get the User model
     initializeDatabase().then(models => {
-      this.userModel = models.User; 
+      console.log('.. user model ..', models.User)
+      this.userModel = models.User;  
     });
   }
 
   async getUserByEmail(email: string): Promise<IUser | null> {
     try {
       const user = await this.userModel.findOne({ where: { email } });
+      console.log(':: current user :: ', user);
       return user ? user.toJSON() : null; 
     } catch (error) {
       console.error('Error retrieving user by email:', error);

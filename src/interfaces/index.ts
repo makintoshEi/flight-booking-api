@@ -1,4 +1,4 @@
-import { Model, ModelCtor } from 'sequelize';
+import { Model, ModelStatic } from 'sequelize';
 
 // Generic model interface
 export interface IModel extends Model {
@@ -6,7 +6,7 @@ export interface IModel extends Model {
 }
 
 // Model factory type
-export type ModelFactory = (sequelize: any) => ModelCtor<IModel>;
+export type ModelFactory = (sequelize: any) => ModelStatic<IModel>;
 
 // User interface
 export interface IUser extends IModel {
