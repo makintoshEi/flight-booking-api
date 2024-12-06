@@ -1,0 +1,62 @@
+erDiagram
+    USERS ||--o{ BOOKINGS : makes
+    FLIGHTS ||--o{ BOOKINGS : has
+    BOOKINGS ||--o{ BOOKING_PASSENGERS : contains
+    BOOKING_PASSENGERS }o--|| PASSENGERS_MASTER : links
+    BOOKINGS ||--|| PAYMENTS : processes
+
+    USERS {
+        int user_id PK
+        string username
+        string email
+        string password_hash
+        timestamp created_at
+    }
+
+    FLIGHTS {
+        int flight_id PK
+        string flight_number
+        string departure_airport
+        string arrival_airport
+        timestamp departure_time
+        timestamp arrival_time
+        int total_seats
+        int available_seats
+        decimal base_price
+    }
+
+    BOOKINGS {
+        int booking_id PK
+        int user_id FK
+        int flight_id FK
+        timestamp booking_date
+        decimal total_price
+        string booking_status
+    }
+
+    BOOKING_PASSENGERS {
+        int booking_passenger_id PK
+        int booking_id FK
+        int passenger_id FK
+        string seat_number
+        string special_requests
+    }
+
+    PASSENGERS_MASTER {
+        int passenger_id PK
+        string first_name
+        string last_name
+        string email
+        date date_of_birth
+        string passport_number
+        string phone_number
+    }
+
+    PAYMENTS {
+        int payment_id PK
+        int booking_id FK
+        decimal payment_amount
+        string payment_method
+        string payment_status
+        timestamp payment_date
+    }
