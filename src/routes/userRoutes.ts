@@ -3,4 +3,6 @@ import { UserController } from '../controllers/userController';
 
 const router = Router();
 
-router.get('/users/:email', UserController.getUsers);
+router.get('/users/:email', UserController.getUserByEmail);
+
+export default router;
