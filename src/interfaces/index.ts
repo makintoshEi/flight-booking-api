@@ -23,7 +23,7 @@ export interface IFlight extends IModel {
     total_seats: number;
     available_seats: number;
     base_price: number;
-    airline: string;
+    airline: 'avianca' | 'jetsmart';
     aircraft_type: string;
 }
 

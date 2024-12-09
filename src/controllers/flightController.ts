@@ -3,7 +3,6 @@ import { COUNTRIES, FLIGHTS } from '../data/mockData';
 import {
     FlightSearchResponse,
     FlightBookingResponse,
-    FlightInfoType,
     FlightConfirmationResponse
 } from '../types';
 import flightService from '../services/flightService'
@@ -22,15 +21,18 @@ export class FlightController {
     }
 
     // GET /search
-    static searchFlights(req: Request, res: Response): void {
+    static async searchFlights(req: Request, res: Response) {
         const { iataOrigin, iataDestiny } = req.params;
 
         try {
-            const filteredFlights: FlightInfoType[] = FLIGHTS.filter(flight =>
-                flight.originIata === iataOrigin &&
-                flight.destinyIata === iataDestiny
-            );
-
+            const filteredFlights = await flightService
+                .getFlightsByOriginAndDestiny(iataOrigin, iataDestiny);
+            if (!filteredFlights) {
+                return res.status(404).json({
+                    status: 'error',
+                    message: 'No flights found'
+                });
+            }
             const response: FlightSearchResponse = {
                 flights: filteredFlights
             };
