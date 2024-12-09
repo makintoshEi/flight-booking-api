@@ -14,11 +14,12 @@ function initModels(sequelize: Sequelize) {
     readdirSync(__dirname)
         .filter(file =>
             file.indexOf('.') !== 0 &&
-            file !== 'index.ts' &&
+            !['index.ts', 'relationships.ts'].includes(file) &&
             (file.endsWith('.ts') || file.endsWith('.js'))
         )
         .forEach(file => {
             const modelModule = require(join(__dirname, file));
+            console.log(modelModule)
             const modelFactory: ModelFactory = modelModule.default;
 
             if (modelFactory) {

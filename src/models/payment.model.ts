@@ -36,4 +36,4 @@ const PaymentModel: ModelFactory = (sequelize: Sequelize) => {
     });
 };
 
-export { PaymentModel }
+export default PaymentModel;

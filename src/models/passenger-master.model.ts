@@ -45,4 +45,4 @@ const PassengerMasterModel: ModelFactory = (sequelize: Sequelize) => {
     });
   };
 
-export { PassengerMasterModel }
+export default PassengerMasterModel;

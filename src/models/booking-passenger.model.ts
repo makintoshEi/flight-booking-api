@@ -37,4 +37,4 @@ const BookingPassengerModel: ModelFactory = (sequelize: Sequelize) => {
     });
 };
 
-export { BookingPassengerModel }
+export default BookingPassengerModel;
