@@ -1,5 +1,6 @@
 import { DataTypes, Sequelize } from "sequelize";
 import { IFlight, ModelFactory } from "../interfaces";
+import { setupRelationships } from "./relationships";
 
 const FlightModel: ModelFactory = (sequelize: Sequelize) => {
     return sequelize.define<IFlight>('Flight', {
@@ -42,11 +43,11 @@ const FlightModel: ModelFactory = (sequelize: Sequelize) => {
             allowNull: false
         },
         airline: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull: true
         },
         aircraft_type: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(50),
             allowNull: true
         }
     }, {
@@ -56,4 +57,4 @@ const FlightModel: ModelFactory = (sequelize: Sequelize) => {
 };
 
 
-export { FlightModel }
+export default FlightModel

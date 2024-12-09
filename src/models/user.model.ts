@@ -1,5 +1,6 @@
 import { DataTypes, Sequelize } from 'sequelize';
 import { IUser, ModelFactory } from '../interfaces';
+import { setupRelationships } from './relationships';
 
 const UserModel: ModelFactory = (sequelize: Sequelize) => {
     return sequelize.define<IUser>('User', {
@@ -31,7 +32,10 @@ const UserModel: ModelFactory = (sequelize: Sequelize) => {
         }
     }, {
         tableName: 'users',
-        underscored: true
+        underscored: true,
+        hooks: {
+            afterSync: () => setupRelationships(sequelize)
+        }
     });
 };
 
