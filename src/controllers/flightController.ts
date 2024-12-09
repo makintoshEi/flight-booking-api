@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { COUNTRIES, FLIGHTS } from '../data/mockData';
+import { COUNTRIES } from '../data/mockData';
 import {
     FlightSearchResponse,
     FlightBookingResponse,

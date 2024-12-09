@@ -19,9 +19,7 @@ function initModels(sequelize: Sequelize) {
         )
         .forEach(file => {
             const modelModule = require(join(__dirname, file));
-            console.log(modelModule)
             const modelFactory: ModelFactory = modelModule.default;
-
             if (modelFactory) {
                 const model = modelFactory(sequelize);
                 db[model.name] = model;
