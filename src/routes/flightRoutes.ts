@@ -7,7 +7,7 @@ const router = Router();
 router.get('/city-and-airport', FlightController.getCitiesAndAirports);
 
 // GET /search/:pathParam1/:pathParam2
-router.get('/search/:iataOrigin/:iataDestiny', FlightController.searchFlights);
+// router.get('/search/:iataOrigin/:iataDestiny', FlightController.searchFlights);
 
 // POST /confirmation
 router.post('/confirmation', FlightController.confirmReservation);

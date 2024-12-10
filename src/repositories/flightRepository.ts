@@ -1,13 +1,13 @@
-import { DatabaseConnection } from "../database/database-connection";
+// import { DatabaseConnection } from "../database/database-connection";
 import { IFlight } from "../interfaces";
 
 class FlightRepository {
     private flightModel: any;
 
     constructor() {
-        DatabaseConnection.getInstance()
-            .getDb()
-            .then(models => this.flightModel = models.Flight);
+        // DatabaseConnection.getInstance()
+        //     .getDb()
+        //     .then(models => this.flightModel = models.Flight);
     }
 
     async searchFlightsByOriginAndDestination(origin: string, destination: string): Promise<IFlight[] | null> {
